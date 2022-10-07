@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.socket.io/4.3.2/socket.io.min.js"
+        integrity="sha384-KAZ4DtjNhLChOB/hxXuKqhMLYvx3b5MlT55xPEiNmREKRzeEm+RVPlTnAn0ajQNs" crossorigin="anonymous">
+        </script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js"></script>
+    <title>Gerencia</title>
+</head>
+
+<body>
+    <div class="container h-100 mh-100 text-white">
+        <div class="row h-100">
+            <div class="col h-100 border-end border-2 border-primary d-flex flex-column align-items-center">
+                <h3 class="title">Pix</h3>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">B$</span>
+                    <input type="number" id="pixquantity" placeholder="100,000" min="0" step="0" max="100000000"
+                        class="form-control" aria-label="Money amount">
+                </div>
+                <div class="input-group mb-3">
+                    <label class="input-group-text" for="pixselect">Para: </label>
+                    <select class="form-select" id="pixselect">
+                    </select>
+                    <button class="btn btn-primary" type="button" onclick="setTransaction();">Transferir</button>
+                </div>
+                <h5 class="title">Turno de</h5>
+                <div class="card">
+                    <h6 class="title" id="turnname">Allan Toledo</h6>
+                    <span class="">Jogadas restantes <span class="value" id="diceturn">0</span></span>
+                    <span class="">Posição <span class="value" id="positionturn">0</span></span>
+                </div>
+            </div>
+            <div class="col border-end border-2 border-primary d-flex flex-column align-items-center">
+                <h3 class="title">Transferências</h3>
+                <div id="transactions" class="list">
+                </div>
+            </div>
+            <div class="col d-flex flex-column align-items-center">
+                <h3 class="title">Configurações do jogador</h3>
+                <div class="input-group mb-3">
+                    <select class="form-select" id="playerlist" onchange="getData();">
+                    </select>
+                </div>
+                <div class="card">
+                    <h6 class="title" id="name"></h6>
+                    <span class="">Código <span class="value" id="password"></span></span>
+                    <span class="">Dinheiro <span class="value" id="money"></span></span>
+                    <span class="">Posição <span class="value" id="position"></span></span>
+                    <span class="">Ultima Posição <span class="value" id="lastPosition"></span></span>
+                    <span class="">Imposto de Renda <span class="value" id="tax"></span></span>
+                    <span class="">Jogadas restantes <span class="value" id="dice"></span></span>
+                    <span class="">Turno <span class="value" id="turn"></span></span>
+                    <span class="">Perdeu <span class="value" id="lost"></span></span>
+                    <span class="">Habeas Corpus <span class="value" id="habeas_corpus"></span></span>
+                    <span class="">UID <span class="value" id="uid"></span></span>
+                </div>
+                <h5 class="title">Mover Jogador</h5>
+                <div class="input-group mb-3">
+                    <span class="input-group-text">Casa final</span>
+                    <input type="number" id="movement" placeholder="1 ... 40" min="1" step="1" max="40"
+                        class="form-control" aria-label="Movement">
+                    <button class="btn btn-primary" type="button" onclick="movePlayer();">Mover</button>
+                </div>
+                <h5 class="title">Alterar Estado do Jogador</h5>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" onclick="setLost(false);">Em Jogo</button>
+                    <span class="input-group-text form-control justify-content-center">
+                        ou </span>
+                    <button class="btn btn-primary" type="button" onclick="setLost(true);">Perdeu</button>
+                </div>
+                <h5 class="title">Habeas Corpus</h5>
+                <div class="input-group mb-3">
+                    <button class="btn btn-primary" type="button" onclick="setHabeasCorpus(false);">Remover</button>
+                    <span class="input-group-text form-control justify-content-center">
+                        ou </span>
+                    <button class="btn btn-primary" type="button" onclick="setHabeasCorpus(true);">Adicionar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

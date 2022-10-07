@@ -1,0 +1,65 @@
+body {
+    background-color: #000051;
+    height: 100vh;
+    flex: auto;
+}
+.border-blue {
+    border-left-width: 5px;
+    border-left-color: #1976d2;
+}
+
+.title {
+    margin-top: 1em;
+}
+
+.list {
+    align-self: stretch;
+}
+
+.value {
+    color: #1976d2;
+}
+
+.transaction {
+    background-color: #1A237E;
+    align-self: stretch;
+    justify-content: space-between;
+    border-radius: 0.5em;
+}
+
+.card {
+    background-color: #1A237E;
+    align-self: stretch;
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 0.5em;
+}
+
+.transaction span {
+    margin: 0;
+    padding: 0;
+    font-size: small;
+}
+
+.quantity {
+    font-weight: bold;
+}
+
+.green {
+    background-color: #388E3C; 
+    height: 4.6em;
+    min-height: 100%;
+    width: 1em;
+    align-self: stretch;
+    border-end-end-radius: 0.5em;
+    border-start-end-radius: 0.5em;
+}
+
+.red {
+    background-color: #C62828; 
+    height: 4.6em;
+    width: 1em;
+    align-self: stretch;
+    border-end-end-radius: 0.5em;
+    border-start-end-radius: 0.5em;
+}
